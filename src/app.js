@@ -66,6 +66,23 @@ app.get('/characters/house/:house', async (req, res) => {
         res.status(500).json({ err: 'something went worng' });
     }
 })
+app.get('/characters/name/:name', async (req, res) => {
+    const name = req.params.name;
+    try {
+        const characters = await getCharacters();
+        const len = characters.Items.length + 1;
+        console.log(Number(len));
+        const arr = [];
+        for (let i = 0; i < 25; i++) {
+            if (characters.Items[i].name == name) {
+                arr.splice(arr.length, 0, characters.Items[i])
+            }
+        }
+        res.json(arr);
+    } catch (e) {
+        res.status(500).json({ err: 'something went worng' });
+    }
+})
 
 app.get('/characters/:id', async (req, res) => {
     const id = req.params.id;
