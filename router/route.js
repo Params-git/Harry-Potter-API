@@ -50,7 +50,7 @@ route.get('/characters/house/:house', async (req, res) => {
     try {
         const characters = await getCharacters();
         const len = characters.Items.length + 1;
-        console.log(Number(len));
+        // console.log(Number(len));
         const arr = [];
         for (let i = 0; i < 25; i++) {
             if (characters.Items[i].house == house) {
@@ -67,7 +67,7 @@ route.get('/characters/name/:name', async (req, res) => {
     try {
         const characters = await getCharacters();
         const len = characters.Items.length + 1;
-        console.log(Number(len));
+        // console.log(Number(len));
         const arr = [];
         for (let i = 0; i < 25; i++) {
             if (characters.Items[i].name == name) {
