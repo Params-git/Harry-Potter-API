@@ -6,11 +6,7 @@ const hbs = require("hbs");
 
 app.use(express.json());
 app.set('view engine', 'hbs');
-app.get("", (req, res) => {
-    res.render("index");
-})
-
-
+app.use('/', require("../router/route"));
 
 app.listen(port, () => {
     console.log(`connection setup at ${port}`);

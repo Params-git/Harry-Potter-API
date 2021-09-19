@@ -1,4 +1,10 @@
 const route = require("express").Router();
+const { getCharacters, getCharacterById, addOrUpdateCharacter, deleteCharacter } = require("../db/dynamo");
+const hbs = require("hbs");
+
+route.get("/", (req, res) => {
+    res.render("index");
+})
 
 route.get('/characters', async (req, res) => {
     try {
